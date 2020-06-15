@@ -1,7 +1,7 @@
-import letsfwclient.LetsFwClient;
+import letsfwclient.LetsForwardClient;
 
 public class LetsForwardClientApplication {
     public static void main(String[] args) {
-        new LetsFwClient().start(args);
+        new LetsForwardClient().start(args);
     }
 }
