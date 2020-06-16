@@ -20,11 +20,10 @@ public class HttpSocketToClientSocketWriter extends Thread {
     public void run() {
         try {
             while (true) {
-                // read from http socket and write to client socket
                 final InputStream httpSocketInputStream = httpSocket.getInputStream();
                 final OutputStream clientSocketOutputStream = clientSocket.getOutputStream();
-                byte[] bytesFromHttpSocket = httpSocketInputStream.readNBytes(httpSocketInputStream.available());
-                clientSocketOutputStream.write(bytesFromHttpSocket);
+                byte[] httpSocketBytes = httpSocketInputStream.readNBytes(httpSocketInputStream.available());
+                clientSocketOutputStream.write(httpSocketBytes);
             }
         } catch (Exception e) {
             logger.log(Level.WARNING, "Something went wrong in the " + currentThread().getName());

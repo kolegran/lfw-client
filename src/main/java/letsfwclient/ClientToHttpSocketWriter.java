@@ -24,7 +24,6 @@ public class ClientToHttpSocketWriter extends Thread {
                 while (clientInputStream.available() == 0) {
                     Thread.sleep(IF_NOTHING_HAS_BEEN_READ_YET);
                 }
-                // read from client socket and write to httpSocket
                 final byte[] bytesFromClient = clientInputStream.readNBytes(clientInputStream.available());
                 final OutputStream httpSocketOutputStream = httpSocket.getOutputStream();
                 httpSocketOutputStream.write(bytesFromClient);
