@@ -24,11 +24,11 @@ public class LetsForwardClient {
             final Socket httpSocket = new Socket(APP_HOST, webServerPort);
 
             final ClientToHttpSocketWriter clientToHttpSocketWriter = new ClientToHttpSocketWriter(clientInputStream, httpSocket);
-            clientToHttpSocketWriter.setName("Thread-1:ClientToHttpSocketWriter");
+            clientToHttpSocketWriter.setName("ClientToHttpSocketWriter thread");
             clientToHttpSocketWriter.start();
 
             final HttpSocketToClientSocketWriter httpSocketToClientSocketWriter = new HttpSocketToClientSocketWriter(httpSocket, clientSocket);
-            httpSocketToClientSocketWriter.setName("Thread-2:HttpSocketToClientSocketWriter");
+            httpSocketToClientSocketWriter.setName("HttpSocketToClientSocketWriter thread");
             httpSocketToClientSocketWriter.start();
 
             // TODO 2020/16/6: if threads finished -> httpSocket.close()
